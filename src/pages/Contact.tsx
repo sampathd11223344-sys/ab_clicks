@@ -34,7 +34,7 @@ export default function Contact() {
               <div className="p-8 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800 sm:col-span-2">
                 <MapPin className="w-8 h-8 text-amber-600 mb-4" />
                 <h4 className="font-bold mb-2">Studio Location</h4>
-                <p className="text-gray-500 dark:text-gray-500">Plot 42, Film Nagar, Jubilee Hills, Hyderabad, Telangana 500033</p>
+                <p className="text-gray-500 dark:text-gray-500">Yellamanchili, Andhra Pradesh, 531055</p>
               </div>
             </div>
 
@@ -62,7 +62,7 @@ export default function Contact() {
           >
             <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white dark:border-zinc-900">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.827222661234!2d78.4066!3d17.4126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96d8f8f8f8f8%3A0x8f8f8f8f8f8f8f8f!2sJubilee%20Hills%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.2!2d82.8!3d17.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a399!2sYellamanchili%2C%20Andhra%20Pradesh%20531055!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

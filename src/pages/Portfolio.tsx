@@ -53,7 +53,7 @@ export default function Portfolio() {
                     <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2" />
                   </div>
                 </div>
-                <div className="absolute bottom-6 left-6">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                   <h4 className="text-white text-xl font-bold">{video.title}</h4>
                 </div>
               </a>

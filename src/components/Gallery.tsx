@@ -9,15 +9,58 @@ interface GalleryItem {
   imageUrl: string;
   videoUrl?: string;
   link?: string;
+  description?: string;
 }
 
 const SAMPLE_GALLERY: GalleryItem[] = [
-  { id: '1', title: 'Royal Indian Wedding', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DVig8fok_Vy/' },
-  { id: '2', title: 'Pre-Wedding Bliss', category: 'Pre-Wedding', imageUrl: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DVZ_zn8k1jp/' },
-  { id: '3', title: 'Maternity Glow', category: 'Maternity', imageUrl: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DVDajxLE8AT/' },
-  { id: '4', title: 'Haldi Ceremony', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DRgiVIIk8qV/' },
-  { id: '5', title: 'Save the Date', category: 'Pre-Wedding', imageUrl: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/reel/DReov7mE5PW/' },
-  { id: '6', title: 'Traditional Haldi', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/reel/DR7Iwmuk1rw/' },
+  { 
+    id: '1', 
+    title: 'Grand Marriage Ceremony', 
+    category: 'Wedding', 
+    imageUrl: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1000', 
+    link: 'https://www.instagram.com/p/DVig8fok_Vy/',
+    description: 'A grand celebration of love and tradition, capturing the royal essence of an Indian wedding ceremony.'
+  },
+  { 
+    id: '2', 
+    title: 'Pre-Wedding Occasion', 
+    category: 'Pre-Wedding', 
+    imageUrl: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=1000', 
+    link: 'https://www.instagram.com/p/DVZ_zn8k1jp/',
+    description: 'Intimate and romantic moments captured before the big day, set against a beautiful natural backdrop.'
+  },
+  { 
+    id: '3', 
+    title: 'Maternity Celebration', 
+    category: 'Maternity', 
+    imageUrl: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=1000', 
+    link: 'https://www.instagram.com/p/DVDajxLE8AT/',
+    description: 'Celebrating the beautiful journey of motherhood with graceful and artistic portraits.'
+  },
+  { 
+    id: '4', 
+    title: 'Traditional Haldi Event', 
+    category: 'Wedding', 
+    imageUrl: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&q=80&w=1000', 
+    link: 'https://www.instagram.com/p/DRgiVIIk8qV/',
+    description: 'The vibrant and joyful Haldi ceremony, filled with laughter, yellow hues, and traditional rituals.'
+  },
+  { 
+    id: '5', 
+    title: 'Save the Date Occasion', 
+    category: 'Pre-Wedding', 
+    imageUrl: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=1000', 
+    link: 'https://www.instagram.com/reel/DReov7mE5PW/',
+    description: 'A cinematic save-the-date film that tells a unique love story with a modern touch.'
+  },
+  { 
+    id: '6', 
+    title: 'Wedding Haldi Ritual', 
+    category: 'Wedding', 
+    imageUrl: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000', 
+    link: 'https://www.instagram.com/reel/DR7Iwmuk1rw/',
+    description: 'Capturing the raw emotions and cultural richness of a traditional Indian Haldi celebration.'
+  },
 ];
 
 export default function Gallery() {
@@ -73,10 +116,17 @@ export default function Gallery() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
-                <Maximize2 className="text-white w-10 h-10 mb-4" />
-                <h4 className="text-white text-xl font-bold">{item.title}</h4>
-                <p className="text-amber-400 text-sm">{item.category}</p>
+              {/* Always visible title overlay */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 pt-12">
+                <h4 className="text-white text-lg font-bold tracking-tight">{item.title}</h4>
+                <p className="text-amber-500 text-xs font-medium uppercase tracking-wider">{item.category}</p>
+              </div>
+              
+              {/* Hover effect for more details */}
+              <div className="absolute inset-0 bg-amber-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="bg-white/10 backdrop-blur-md p-3 rounded-full border border-white/20">
+                  <Maximize2 className="text-white w-6 h-6" />
+                </div>
               </div>
             </motion.div>
           ))}
@@ -111,7 +161,12 @@ export default function Gallery() {
               />
               <div className="mt-6 text-center">
                 <h3 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h3>
-                <p className="text-amber-500 mb-4">{selectedImage.category}</p>
+                <p className="text-amber-500 mb-2">{selectedImage.category}</p>
+                {selectedImage.description && (
+                  <p className="text-gray-400 text-sm mb-6 max-w-2xl mx-auto font-light leading-relaxed">
+                    {selectedImage.description}
+                  </p>
+                )}
                 {selectedImage.link && (
                   <a
                     href={selectedImage.link}
