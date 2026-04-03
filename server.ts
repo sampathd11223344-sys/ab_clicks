@@ -21,6 +21,29 @@ async function startServer() {
       appType: "spa",
     });
     app.use(vite.middlewares);
+    
+    // SPA fallback for dev mode
+    app.use('*', async (req, res, next) => {
+      const url = req.originalUrl;
+      try {
+        const template = await vite.transformIndexHtml(url, `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AB Clicks</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>`);
+        res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
+      } catch (e) {
+        vite.ssrFixStacktrace(e as Error);
+        next(e);
+      }
+    });
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));

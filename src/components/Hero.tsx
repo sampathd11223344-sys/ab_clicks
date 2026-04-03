@@ -8,8 +8,8 @@ export default function Hero() {
       {/* Background Image/Video Placeholder */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000"
-          alt="Wedding Photography"
+          src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=2000"
+          alt="Indian Wedding Photography"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />

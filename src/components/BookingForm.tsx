@@ -50,7 +50,7 @@ export default function BookingForm() {
 
   const handleWhatsAppBooking = () => {
     const values = watch();
-    const phoneNumber = '91891985233';
+    const phoneNumber = '918919852330';
     const message = `Hello AB Clicks, I want to book a ${values.eventType || 'shoot'} on ${values.date || 'a specific date'}. My name is ${values.name || 'Ravi'}.`;
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };

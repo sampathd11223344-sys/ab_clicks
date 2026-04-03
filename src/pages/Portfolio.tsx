@@ -34,12 +34,19 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'The Royal Wedding Film', url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1000' },
-              { title: 'Pre-Wedding Love Story', url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1000' },
+              { title: 'Pre-Wedding Love Story', url: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/reel/DVOZ3HNk7WU/' },
+              { title: 'Save the Date Film', url: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/reel/DReov7mE5PW/' },
+              { title: 'Haldi Ceremony Highlights', url: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/reel/DSKgVIeCHeN/' },
             ].map((video, i) => (
-              <div key={i} className="relative aspect-video rounded-3xl overflow-hidden group cursor-pointer">
+              <a
+                key={i}
+                href={video.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative aspect-video rounded-3xl overflow-hidden group cursor-pointer"
+              >
                 <img src={video.url} alt={video.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                   <div className="w-20 h-20 bg-amber-600/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -49,7 +56,7 @@ export default function Portfolio() {
                 <div className="absolute bottom-6 left-6">
                   <h4 className="text-white text-xl font-bold">{video.title}</h4>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

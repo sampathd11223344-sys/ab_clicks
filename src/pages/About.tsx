@@ -43,8 +43,8 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=1000"
-                alt="Photographer at work"
+                src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=1000"
+                alt="Indian Photographer at work"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -54,33 +54,6 @@ export default function About() {
               <p className="font-bold text-xl">Passion in Every Frame</p>
             </div>
           </motion.div>
-        </div>
-
-        {/* Team Section */}
-        <div className="text-center mb-32">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight">Meet the <span className="text-amber-600">Visionaries</span></h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { name: 'Arjun Bhardwaj', role: 'Lead Photographer', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=500' },
-              { name: 'Sneha Rao', role: 'Cinematographer', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=500' },
-              { name: 'Karan Singh', role: 'Editor', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=500' },
-            ].map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group"
-              >
-                <div className="aspect-square rounded-full overflow-hidden mb-6 border-4 border-amber-500/20 group-hover:border-amber-500 transition-all duration-500">
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" referrerPolicy="no-referrer" />
-                </div>
-                <h4 className="text-2xl font-bold">{member.name}</h4>
-                <p className="text-amber-600 font-medium">{member.role}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
         {/* Values */}

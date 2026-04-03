@@ -9,21 +9,18 @@ const SERVICES = [
   {
     title: 'Wedding Photography',
     description: 'Capturing the grand celebrations and intimate moments of your big day with a cinematic flair.',
-    price: '45,000',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800',
     features: ['Full Day Coverage', 'High-Res Edited Photos', 'Cinematic Highlight Video', 'Premium Wedding Album']
   },
   {
     title: 'Pre-Wedding Shoot',
     description: 'Tell your love story through beautiful, romantic shots at stunning locations.',
-    price: '15,000',
-    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=800',
     features: ['2-3 Locations', 'Multiple Outfit Changes', 'Drone Shots Included', 'Digital Gallery Access']
   },
   {
     title: 'Maternity & Baby',
     description: 'Cherish the beautiful journey of motherhood and the first smiles of your little one.',
-    price: '10,000',
     image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=800',
     features: ['Home or Studio Session', 'Props Provided', 'Gentle Posing Guidance', 'Edited Digital Photos']
   }

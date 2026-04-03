@@ -24,7 +24,7 @@ export default function Contact() {
               <div className="p-8 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800">
                 <Phone className="w-8 h-8 text-amber-600 mb-4" />
                 <h4 className="font-bold mb-2">Phone</h4>
-                <p className="text-gray-500 dark:text-gray-500">+91 89198 5233</p>
+                <p className="text-gray-500 dark:text-gray-500">+91 89198 52330</p>
               </div>
               <div className="p-8 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800">
                 <Mail className="w-8 h-8 text-amber-600 mb-4" />
@@ -73,7 +73,7 @@ export default function Contact() {
             </div>
             
             <a
-              href="https://wa.me/91891985233"
+              href="https://wa.me/918919852330"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between p-8 bg-green-500 text-white rounded-3xl hover:bg-green-600 transition-all group"

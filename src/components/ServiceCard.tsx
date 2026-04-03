@@ -5,13 +5,12 @@ import { Link } from 'react-router-dom';
 interface ServiceCardProps {
   title: string;
   description: string;
-  price: string;
   features: string[];
   image: string;
   index: number;
 }
 
-export default function ServiceCard({ title, description, price, features, image, index }: ServiceCardProps) {
+export default function ServiceCard({ title, description, features, image, index }: ServiceCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -38,11 +37,6 @@ export default function ServiceCard({ title, description, price, features, image
           {description}
         </p>
         
-        <div className="mb-6">
-          <span className="text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wider font-semibold">Starting from</span>
-          <div className="text-3xl font-bold text-amber-600 dark:text-amber-500">₹{price}</div>
-        </div>
-
         <ul className="space-y-3 mb-8">
           {features.map((feature, i) => (
             <li key={i} className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">

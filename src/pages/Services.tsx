@@ -5,42 +5,36 @@ const ALL_SERVICES = [
   {
     title: 'Wedding Photography',
     description: 'Comprehensive coverage of your wedding day, from getting ready to the final farewell.',
-    price: '45,000',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800',
     features: ['Full Day Coverage', '2 Photographers', '1000+ Edited Photos', 'Premium Wedding Album', 'Online Gallery']
   },
   {
     title: 'Pre-Wedding Shoot',
     description: 'Romantic and artistic photoshoots at scenic locations to celebrate your engagement.',
-    price: '15,000',
-    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=800',
     features: ['3-4 Locations', 'Outfit Changes', 'Drone Photography', 'Cinematic Teaser Video', 'All Raw Images']
   },
   {
     title: 'Cinematic Videography',
     description: 'High-definition cinematic films that tell your story like a Bollywood masterpiece.',
-    price: '60,000',
     image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800',
     features: ['4K Video Quality', 'Cinematic Storytelling', 'Professional Sound Design', '15-20 Min Highlight Film', 'Full Event Recording']
   },
   {
     title: 'Maternity Shoot',
     description: 'Celebrate the glow of motherhood with a graceful and artistic photoshoot.',
-    price: '12,000',
     image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=800',
     features: ['Studio or Outdoor', 'Gown Rentals Available', 'Gentle Posing Guidance', 'Family Included', '20 Retouched Photos']
   },
   {
     title: 'Baby & Kids Shoot',
     description: 'Capture the innocent smiles and playful moments of your children.',
-    price: '8,000',
     image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=800',
     features: ['Fun Props & Themes', 'Patient Photographers', 'Home Setup Available', 'Digital Downloads', 'Custom Photo Book']
   },
   {
     title: 'Event Coverage',
     description: 'Professional photography for birthdays, anniversaries, and corporate events.',
-    price: '10,000',
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800',
     features: ['Candid & Group Shots', 'Fast Turnaround', 'High-Res Digital Files', 'Social Media Ready', 'Professional Lighting']
   }
@@ -82,7 +76,7 @@ export default function Services() {
             Every event is unique. If our standard packages don't fit your vision, we're happy to create a bespoke plan just for you.
           </p>
           <a
-            href="https://wa.me/91891985233?text=Hello%20AB%20Clicks,%20I%20want%20a%20custom%20quote"
+            href="https://wa.me/918919852330?text=Hello%20AB%20Clicks,%20I%20want%20a%20custom%20quote"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-amber-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-amber-700 transition-all shadow-xl"

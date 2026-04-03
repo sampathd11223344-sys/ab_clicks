@@ -57,7 +57,7 @@ export default function Booking() {
               <h4 className="text-lg font-bold mb-4">Need Immediate Assistance?</h4>
               <p className="text-gray-600 dark:text-gray-400 mb-6 font-light">Call us directly or chat with us for urgent bookings.</p>
               <div className="flex items-center gap-4 text-amber-600 font-bold text-xl">
-                <Phone className="w-6 h-6" /> +91 89198 5233
+                <Phone className="w-6 h-6" /> +91 89198 52330
               </div>
             </div>
           </motion.div>

@@ -8,15 +8,16 @@ interface GalleryItem {
   category: string;
   imageUrl: string;
   videoUrl?: string;
+  link?: string;
 }
 
 const SAMPLE_GALLERY: GalleryItem[] = [
-  { id: '1', title: 'Royal Wedding', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1000' },
-  { id: '2', title: 'Pre-Wedding Bliss', category: 'Pre-Wedding', imageUrl: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1000' },
-  { id: '3', title: 'Maternity Glow', category: 'Maternity', imageUrl: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=1000' },
-  { id: '4', title: 'Baby First Steps', category: 'Baby', imageUrl: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=1000' },
-  { id: '5', title: 'Cinematic Portrait', category: 'Portrait', imageUrl: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=1000' },
-  { id: '6', title: 'Traditional Ceremony', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000' },
+  { id: '1', title: 'Royal Indian Wedding', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DVig8fok_Vy/' },
+  { id: '2', title: 'Pre-Wedding Bliss', category: 'Pre-Wedding', imageUrl: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DVZ_zn8k1jp/' },
+  { id: '3', title: 'Maternity Glow', category: 'Maternity', imageUrl: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DVDajxLE8AT/' },
+  { id: '4', title: 'Haldi Ceremony', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/p/DRgiVIIk8qV/' },
+  { id: '5', title: 'Save the Date', category: 'Pre-Wedding', imageUrl: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/reel/DReov7mE5PW/' },
+  { id: '6', title: 'Traditional Haldi', category: 'Wedding', imageUrl: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000', link: 'https://www.instagram.com/reel/DR7Iwmuk1rw/' },
 ];
 
 export default function Gallery() {
@@ -110,7 +111,17 @@ export default function Gallery() {
               />
               <div className="mt-6 text-center">
                 <h3 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h3>
-                <p className="text-amber-500">{selectedImage.category}</p>
+                <p className="text-amber-500 mb-4">{selectedImage.category}</p>
+                {selectedImage.link && (
+                  <a
+                    href={selectedImage.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-amber-600 text-white px-6 py-2 rounded-full font-bold hover:bg-amber-700 transition-all"
+                  >
+                    View on Instagram
+                  </a>
+                )}
               </div>
             </motion.div>
           </motion.div>
