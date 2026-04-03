@@ -1,0 +1,7 @@
+{
+  "name": "AB Clicks - Premium Photography & Videography",
+  "description": "A modern, cinematic photography and videography service website for AB Clicks, featuring wedding, pre-wedding, and event shoots with Indian cultural aesthetics.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

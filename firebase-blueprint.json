@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "A booking request for a photoshoot or videography session.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Name of the client" },
+        "phone": { "type": "string", "description": "Phone number of the client" },
+        "eventType": { "type": "string", "description": "Type of event (e.g., Wedding, Pre-Wedding)" },
+        "date": { "type": "string", "format": "date", "description": "Date of the event" },
+        "location": { "type": "string", "description": "Location of the event" },
+        "message": { "type": "string", "description": "Additional message or requirements" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "completed"], "description": "Current status of the booking" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the booking was created" }
+      },
+      "required": ["name", "phone", "eventType", "date", "location"]
+    },
+    "GalleryItem": {
+      "title": "Gallery Item",
+      "description": "An image or video in the portfolio gallery.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Title of the item" },
+        "category": { "type": "string", "description": "Category (e.g., Wedding, Maternity)" },
+        "imageUrl": { "type": "string", "description": "URL of the image" },
+        "videoUrl": { "type": "string", "description": "URL of the video (optional)" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When it was added" }
+      },
+      "required": ["title", "category", "imageUrl"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "A photography or videography service offered.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Name of the service" },
+        "description": { "type": "string", "description": "Detailed description" },
+        "priceBasic": { "type": "number", "description": "Starting price for basic package" },
+        "priceStandard": { "type": "number", "description": "Price for standard package" },
+        "pricePremium": { "type": "number", "description": "Price for premium package" },
+        "features": { "type": "array", "items": { "type": "string" }, "description": "List of features included" }
+      },
+      "required": ["title", "description"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user of the application (admin or client).",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Full name" },
+        "email": { "type": "string", "format": "email", "description": "Email address" },
+        "role": { "type": "string", "enum": ["admin", "user"], "description": "User role" }
+      },
+      "required": ["name", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": { "schema": "Booking", "description": "Collection of all bookings" },
+    "/gallery/{itemId}": { "schema": "GalleryItem", "description": "Collection of portfolio items" },
+    "/services/{serviceId}": { "schema": "Service", "description": "Collection of services offered" },
+    "/users/{userId}": { "schema": "User", "description": "Collection of user profiles" }
+  }
+}
