@@ -1,87 +1,97 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Maximize2 } from 'lucide-react';
+import { X, Maximize2, Play } from 'lucide-react';
 
 interface GalleryItem {
   id: string;
   title: string;
   category: string;
   imageUrl: string;
-  videoUrl?: string;
+  youtubeId?: string;
   link?: string;
   description?: string;
 }
 
 const SAMPLE_GALLERY: GalleryItem[] = [
   { 
-    id: '1', 
-    title: 'Serene Boat Wedding Shoot', 
+    id: 'yt1', 
+    title: 'Cover Song - Cinematic', 
+    category: 'Films', 
+    imageUrl: 'https://img.youtube.com/vi/Pxm1-79TffQ/maxresdefault.jpg', 
+    youtubeId: 'Pxm1-79TffQ',
+    description: 'A soulful cinematic cover song experience captured with emotional depth.'
+  },
+  { 
+    id: 'yt2', 
+    title: 'Half Saree Shoot', 
+    category: 'Films', 
+    imageUrl: 'https://img.youtube.com/vi/3oLWr50Jpho/maxresdefault.jpg', 
+    youtubeId: '3oLWr50Jpho',
+    description: 'Traditional Half Saree ceremony captured in a vibrant and cinematic style.'
+  },
+  { 
+    id: 'yt3', 
+    title: 'Haldi Teaser', 
     category: 'Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200', 
-    link: 'https://www.instagram.com/p/DVig8fok_Vy/',
-    description: 'A romantic boat ride capturing the serene beauty of a couple in traditional Indian wedding attire.'
+    imageUrl: 'https://img.youtube.com/vi/biFwl_rXo-w/maxresdefault.jpg', 
+    youtubeId: 'biFwl_rXo-w',
+    description: 'Vibrant and joyful Haldi ceremony teaser full of colors and emotions.'
   },
   { 
-    id: '2', 
-    title: 'Lakeside Pre-Wedding Bliss', 
+    id: 'yt4', 
+    title: 'Pre-Wedding Film', 
     category: 'Pre-Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200', 
-    link: 'https://www.instagram.com/p/DVZ_zn8k1jp/',
-    description: 'Capturing intimate moments amidst the lily pads, a perfect pre-wedding celebration of love.'
+    imageUrl: 'https://img.youtube.com/vi/ib-6Vb_xmMA/maxresdefault.jpg', 
+    youtubeId: 'ib-6Vb_xmMA',
+    description: 'A romantic pre-wedding story told through cinematic visuals.'
   },
   { 
-    id: '3', 
-    title: 'Cinematic Gazebo Portraits', 
-    category: 'Portrait', 
-    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1200', 
-    link: 'https://www.instagram.com/p/DVDajxLE8AT/',
-    description: 'Elegant portraits captured under the soft glow of a white gazebo, creating a timeless cinematic feel.'
-  },
-  { 
-    id: '4', 
-    title: 'Vibrant Lakeside Celebration', 
+    id: 'yt5', 
+    title: 'Wedding Teaser I', 
     category: 'Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&q=80&w=1200', 
-    link: 'https://www.instagram.com/p/DRgiVIIk8qV/',
-    description: 'Joyful moments on the water, reflecting the vibrant colors and traditions of an Indian wedding.'
+    imageUrl: 'https://img.youtube.com/vi/6iHnVsndmno/maxresdefault.jpg', 
+    youtubeId: '6iHnVsndmno',
+    description: 'The grand highlights of a beautiful wedding celebration.'
   },
   { 
-    id: '5', 
-    title: 'Graceful Maternity Portraits', 
-    category: 'Maternity', 
-    imageUrl: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=1200', 
-    link: 'https://www.instagram.com/reel/DReov7mE5PW/',
-    description: 'Celebrating the beauty of motherhood with graceful portraits in a lush green setting.'
+    id: 'yt6', 
+    title: 'Wedding Teaser II', 
+    category: 'Wedding', 
+    imageUrl: 'https://img.youtube.com/vi/1A-MGLuG9U0/maxresdefault.jpg', 
+    youtubeId: '1A-MGLuG9U0',
+    description: 'Emotional and grand moments from a royal wedding ceremony.'
   },
   { 
-    id: '6', 
-    title: 'Joyful Save the Date', 
+    id: 'yt7', 
+    title: 'Save the Date', 
     category: 'Pre-Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=1200', 
-    link: 'https://www.instagram.com/reel/DR7Iwmuk1rw/',
-    description: 'A playful and joyful save-the-date moment, capturing the excitement of the journey ahead.'
+    imageUrl: 'https://img.youtube.com/vi/F_ziRbazfxc/maxresdefault.jpg', 
+    youtubeId: 'F_ziRbazfxc',
+    description: 'Creative and fun Save the Date film to announce the big day.'
   },
   { 
-    id: '7', 
-    title: 'Baby Milestone Shoot', 
-    category: 'Baby', 
-    imageUrl: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=1200', 
-    description: 'Capturing the innocent smiles and precious milestones of your little ones.'
+    id: 'yt8', 
+    title: 'Birthday Candid', 
+    category: 'Birthday', 
+    imageUrl: 'https://img.youtube.com/vi/OQjfHyVHM1I/maxresdefault.jpg', 
+    youtubeId: 'OQjfHyVHM1I',
+    description: 'Candid moments from a joyful birthday celebration.'
   },
   { 
-    id: '8', 
-    title: 'Elegant Outdoor Portraits', 
-    category: 'Portrait', 
-    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200', 
-    description: 'Timeless outdoor portraits that capture the natural beauty and personality of our clients.'
+    id: 'yt9', 
+    title: 'Birthday Celebration', 
+    category: 'Birthday', 
+    imageUrl: 'https://img.youtube.com/vi/yhrQHP3r6PE/maxresdefault.jpg', 
+    youtubeId: 'yhrQHP3r6PE',
+    description: 'A complete cinematic highlight of a special birthday event.'
   },
 ];
 
 export default function Gallery() {
   const [filter, setFilter] = useState('All');
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
-  const categories = ['All', 'Wedding', 'Pre-Wedding', 'Maternity', 'Baby', 'Portrait'];
+  const categories = ['All', 'Wedding', 'Pre-Wedding', 'Films', 'Birthday'];
   const filteredItems = filter === 'All' ? SAMPLE_GALLERY : SAMPLE_GALLERY.filter(item => item.category === filter);
 
   return (
@@ -89,7 +99,7 @@ export default function Gallery() {
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Our <span className="text-amber-600">Portfolio</span></h2>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-light">
-          A collection of our finest work, capturing the essence of love, joy, and celebration.
+          A collection of our finest work, capturing the essence of love, joy, and celebration through cinematic films.
         </p>
       </div>
 
@@ -121,8 +131,8 @@ export default function Gallery() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="relative group cursor-pointer aspect-[4/5] overflow-hidden rounded-3xl"
-              onClick={() => setSelectedImage(item)}
+              className="relative group cursor-pointer aspect-[4/5] overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all"
+              onClick={() => setSelectedItem(item)}
             >
               <img
                 src={item.imageUrl}
@@ -140,8 +150,12 @@ export default function Gallery() {
               
               {/* Hover effect for more details */}
               <div className="absolute inset-0 bg-amber-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <div className="bg-white/10 backdrop-blur-md p-3 rounded-full border border-white/20">
-                  <Maximize2 className="text-white w-6 h-6" />
+                <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
+                  {item.youtubeId ? (
+                    <Play className="text-white w-8 h-8 fill-current ml-1" />
+                  ) : (
+                    <Maximize2 className="text-white w-8 h-8" />
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -149,52 +163,70 @@ export default function Gallery() {
         </AnimatePresence>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox / Video Player */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedItem && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-6"
-            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-10"
+            onClick={() => setSelectedItem(null)}
           >
-            <button className="absolute top-10 right-10 text-white hover:text-amber-500 transition-colors">
+            <button className="absolute top-6 right-6 text-white hover:text-amber-500 transition-colors z-[110]">
               <X className="w-10 h-10" />
             </button>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="max-w-5xl w-full max-h-[80vh] relative"
+              className="max-w-5xl w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedImage.imageUrl}
-                alt={selectedImage.title}
-                className="w-full h-full object-contain rounded-xl"
-                loading="eager"
-                decoding="async"
-                referrerPolicy="no-referrer"
-              />
-              <div className="mt-6 text-center">
-                <h3 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h3>
-                <p className="text-amber-500 mb-2">{selectedImage.category}</p>
-                {selectedImage.description && (
-                  <p className="text-gray-400 text-sm mb-6 max-w-2xl mx-auto font-light leading-relaxed">
-                    {selectedImage.description}
-                  </p>
+              <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl">
+                {selectedItem.youtubeId ? (
+                  <div className="aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${selectedItem.youtubeId}?autoplay=1`}
+                      title={selectedItem.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                ) : (
+                  <div className="aspect-[4/5] md:aspect-auto md:max-h-[70vh] overflow-hidden">
+                    <img
+                      src={selectedItem.imageUrl}
+                      alt={selectedItem.title}
+                      className="w-full h-full object-contain"
+                      loading="eager"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
                 )}
-                {selectedImage.link && (
-                  <a
-                    href={selectedImage.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-amber-600 text-white px-6 py-2 rounded-full font-bold hover:bg-amber-700 transition-all"
-                  >
-                    View on Instagram
-                  </a>
-                )}
+                
+                <div className="p-8 text-center bg-zinc-900">
+                  <h3 className="text-2xl font-bold text-white mb-2">{selectedItem.title}</h3>
+                  <p className="text-amber-500 mb-4">{selectedItem.category}</p>
+                  {selectedItem.description && (
+                    <p className="text-gray-400 text-sm mb-6 max-w-2xl mx-auto font-light leading-relaxed">
+                      {selectedItem.description}
+                    </p>
+                  )}
+                  {selectedItem.link && (
+                    <a
+                      href={selectedItem.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-amber-600 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition-all shadow-xl"
+                    >
+                      View on Instagram
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           </motion.div>
