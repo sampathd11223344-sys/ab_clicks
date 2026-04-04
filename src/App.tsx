@@ -7,6 +7,7 @@ import Portfolio from './pages/Portfolio';
 import Booking from './pages/Booking';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
+import Gifts from './pages/Gifts';
 import { useAuth } from './hooks/useAuth';
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="booking" element={<Booking />} />
           <Route path="contact" element={<Contact />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="gifts" element={<Gifts />} />
         </Route>
       </Routes>
     </Router>

@@ -33,8 +33,8 @@ async function startServer() {
       }
 
       try {
-        // Read index.html from root
-        const indexPath = path.resolve(__dirname, "index.html");
+        // Read index.html from root using process.cwd()
+        const indexPath = path.resolve(process.cwd(), "index.html");
         if (!fs.existsSync(indexPath)) {
           return res.status(404).send("index.html not found");
         }

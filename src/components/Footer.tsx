@@ -1,8 +1,14 @@
 import { motion } from 'motion/react';
-import { Instagram, Facebook, Twitter, Mail, Phone, MapPin, Camera } from 'lucide-react';
+import { Instagram, Youtube, MessageCircle, Mail, Phone, MapPin, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+  const socialLinks = [
+    { icon: Instagram, href: 'https://www.instagram.com/ab_clicks_officials/', label: 'Instagram' },
+    { icon: Youtube, href: 'https://youtube.com/@abclicks_000?si=t0gOSvttzlVIcpwd', label: 'YouTube' },
+    { icon: MessageCircle, href: 'https://wa.me/918919852330', label: 'WhatsApp' },
+  ];
+
   return (
     <footer className="bg-zinc-950 text-white pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -17,13 +23,16 @@ export default function Footer() {
             Based in India, serving worldwide.
           </p>
           <div className="flex gap-4">
-            {[Instagram, Facebook, Twitter].map((Icon, i) => (
+            {socialLinks.map((social, i) => (
               <a
                 key={i}
-                href="#"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-amber-600 transition-colors"
+                aria-label={social.label}
               >
-                <Icon className="w-5 h-5" />
+                <social.icon className="w-5 h-5" />
               </a>
             ))}
           </div>
@@ -33,7 +42,7 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-bold mb-6 text-amber-500">Quick Links</h4>
           <ul className="space-y-4">
-            {['Home', 'About', 'Services', 'Portfolio', 'Booking', 'Contact'].map((item) => (
+            {['Home', 'About', 'Services', 'Portfolio', 'Gifts', 'Booking', 'Contact'].map((item) => (
               <li key={item}>
                 <Link to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="text-gray-400 hover:text-amber-500 transition-colors">
                   {item}

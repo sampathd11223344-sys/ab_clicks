@@ -2,7 +2,7 @@ import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 import ServiceCard from '../components/ServiceCard';
 import { motion } from 'motion/react';
-import { Star, Quote, ArrowRight } from 'lucide-react';
+import { Star, Quote, ArrowRight, Gift, ShoppingBag, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const SERVICES = [
@@ -23,6 +23,30 @@ const SERVICES = [
     description: 'Cherish the beautiful journey of motherhood and the first smiles of your little one.',
     image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=800',
     features: ['Home or Studio Session', 'Props Provided', 'Gentle Posing Guidance', 'Edited Digital Photos']
+  }
+];
+
+const GIFTS = [
+  {
+    id: '1',
+    title: 'Candid Memory Frame (12x18)',
+    price: '₹1300',
+    tag: 'Door Delivery Free',
+    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800',
+  },
+  {
+    id: '2',
+    title: 'Couple Frame (10x15)',
+    price: '₹700',
+    tag: 'Available for Delivery',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800',
+  },
+  {
+    id: '3',
+    title: 'Custom Gift Frames',
+    price: 'Starting from ₹500',
+    tag: 'Personalized',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800',
   }
 ];
 
@@ -78,6 +102,70 @@ export default function Home() {
 
       {/* Portfolio Preview */}
       <Gallery />
+
+      {/* Gifts Preview */}
+      <section className="py-24 px-6 bg-white dark:bg-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-500 px-4 py-2 rounded-full text-sm font-bold mb-6">
+                <Gift className="w-4 h-4" />
+                <span>Gifts & Frames</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Preserve Your <span className="text-amber-600">Memories</span></h2>
+              <p className="text-gray-600 dark:text-gray-400 font-light text-lg">
+                Beautifully crafted frames and custom gifts to keep your special moments alive forever.
+              </p>
+            </div>
+            <Link to="/gifts" className="text-amber-600 font-semibold flex items-center gap-2 hover:gap-4 transition-all">
+              View All Gifts <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {GIFTS.map((gift, i) => (
+              <motion.div
+                key={gift.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-zinc-50 dark:bg-zinc-900 rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-100 dark:border-zinc-800 group hover:shadow-2xl transition-all duration-500"
+              >
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <img
+                    src={gift.image}
+                    alt={gift.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute top-6 left-6">
+                    <span className="bg-amber-600 text-white px-4 py-1 rounded-full text-[10px] font-bold shadow-lg">
+                      {gift.tag}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-lg font-bold tracking-tight group-hover:text-amber-600 transition-colors">
+                      {gift.title}
+                    </h3>
+                    <span className="text-amber-600 font-bold">{gift.price}</span>
+                  </div>
+                  <a
+                    href={`https://wa.me/918919852330?text=I'm interested in the ${gift.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 bg-zinc-900 dark:bg-zinc-800 text-white py-3 rounded-xl font-bold hover:bg-amber-600 dark:hover:bg-amber-600 transition-all shadow-lg group/btn"
+                  >
+                    <ShoppingBag className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                    Order Now
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section className="py-24 px-6 bg-zinc-900 text-white overflow-hidden relative">

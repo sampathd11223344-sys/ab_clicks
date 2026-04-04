@@ -1,7 +1,13 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Youtube, MessageCircle, ArrowRight } from 'lucide-react';
 
 export default function Contact() {
+  const socialLinks = [
+    { icon: Instagram, href: 'https://www.instagram.com/ab_clicks_officials/', label: 'Instagram' },
+    { icon: Youtube, href: 'https://youtube.com/@abclicks_000?si=t0gOSvttzlVIcpwd', label: 'YouTube' },
+    { icon: MessageCircle, href: 'https://wa.me/918919852330', label: 'WhatsApp' },
+  ];
+
   return (
     <div className="pt-32 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
@@ -29,7 +35,7 @@ export default function Contact() {
               <div className="p-8 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800">
                 <Mail className="w-8 h-8 text-amber-600 mb-4" />
                 <h4 className="font-bold mb-2">Email</h4>
-                <p className="text-gray-500 dark:text-gray-500">hello@abclicks.com</p>
+                <p className="text-gray-500 dark:text-gray-500 text-sm break-all">anilkothalanka@gmail.com</p>
               </div>
               <div className="p-8 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800 sm:col-span-2">
                 <MapPin className="w-8 h-8 text-amber-600 mb-4" />
@@ -41,13 +47,16 @@ export default function Contact() {
             <div className="space-y-6">
               <h4 className="text-xl font-bold">Follow Our Journey</h4>
               <div className="flex gap-4">
-                {[Instagram, Facebook, Twitter].map((Icon, i) => (
+                {socialLinks.map((social, i) => (
                   <a
                     key={i}
-                    href="#"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-14 h-14 rounded-2xl bg-zinc-900 flex items-center justify-center hover:bg-amber-600 transition-colors text-white"
+                    aria-label={social.label}
                   >
-                    <Icon className="w-6 h-6" />
+                    <social.icon className="w-6 h-6" />
                   </a>
                 ))}
               </div>
@@ -86,7 +95,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="bg-white/20 p-3 rounded-full group-hover:translate-x-2 transition-transform">
-                <Instagram className="w-6 h-6 rotate-45" />
+                <ArrowRight className="w-6 h-6" />
               </div>
             </a>
           </motion.div>
