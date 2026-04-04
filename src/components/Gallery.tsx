@@ -15,51 +15,65 @@ interface GalleryItem {
 const SAMPLE_GALLERY: GalleryItem[] = [
   { 
     id: '1', 
-    title: 'Grand Marriage Ceremony', 
+    title: 'Serene Boat Wedding Shoot', 
     category: 'Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1000', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/1', 
     link: 'https://www.instagram.com/p/DVig8fok_Vy/',
-    description: 'A grand celebration of love and tradition, capturing the royal essence of an Indian wedding ceremony.'
+    description: 'A romantic boat ride capturing the serene beauty of a couple in traditional Indian wedding attire.'
   },
   { 
     id: '2', 
-    title: 'Pre-Wedding Occasion', 
+    title: 'Lakeside Pre-Wedding Bliss', 
     category: 'Pre-Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=1000', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/2', 
     link: 'https://www.instagram.com/p/DVZ_zn8k1jp/',
-    description: 'Intimate and romantic moments captured before the big day, set against a beautiful natural backdrop.'
+    description: 'Capturing intimate moments amidst the lily pads, a perfect pre-wedding celebration of love.'
   },
   { 
     id: '3', 
-    title: 'Maternity Celebration', 
-    category: 'Maternity', 
-    imageUrl: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=1000', 
+    title: 'Cinematic Gazebo Portraits', 
+    category: 'Portrait', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/3', 
     link: 'https://www.instagram.com/p/DVDajxLE8AT/',
-    description: 'Celebrating the beautiful journey of motherhood with graceful and artistic portraits.'
+    description: 'Elegant portraits captured under the soft glow of a white gazebo, creating a timeless cinematic feel.'
   },
   { 
     id: '4', 
-    title: 'Traditional Haldi Event', 
+    title: 'Vibrant Lakeside Celebration', 
     category: 'Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&q=80&w=1000', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/4', 
     link: 'https://www.instagram.com/p/DRgiVIIk8qV/',
-    description: 'The vibrant and joyful Haldi ceremony, filled with laughter, yellow hues, and traditional rituals.'
+    description: 'Joyful moments on the water, reflecting the vibrant colors and traditions of an Indian wedding.'
   },
   { 
     id: '5', 
-    title: 'Save the Date Occasion', 
-    category: 'Pre-Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=1000', 
+    title: 'Graceful Maternity Portraits', 
+    category: 'Maternity', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/5', 
     link: 'https://www.instagram.com/reel/DReov7mE5PW/',
-    description: 'A cinematic save-the-date film that tells a unique love story with a modern touch.'
+    description: 'Celebrating the beauty of motherhood with graceful portraits in a lush green setting.'
   },
   { 
     id: '6', 
-    title: 'Wedding Haldi Ritual', 
-    category: 'Wedding', 
-    imageUrl: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000', 
+    title: 'Joyful Save the Date', 
+    category: 'Pre-Wedding', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/6', 
     link: 'https://www.instagram.com/reel/DR7Iwmuk1rw/',
-    description: 'Capturing the raw emotions and cultural richness of a traditional Indian Haldi celebration.'
+    description: 'A playful and joyful save-the-date moment, capturing the excitement of the journey ahead.'
+  },
+  { 
+    id: '7', 
+    title: 'Baby Milestone Shoot', 
+    category: 'Baby', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/7', 
+    description: 'Capturing the innocent smiles and precious milestones of your little ones.'
+  },
+  { 
+    id: '8', 
+    title: 'Elegant Outdoor Portraits', 
+    category: 'Portrait', 
+    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/8', 
+    description: 'Timeless outdoor portraits that capture the natural beauty and personality of our clients.'
   },
 ];
 

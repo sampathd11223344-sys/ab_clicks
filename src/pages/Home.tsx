@@ -9,19 +9,19 @@ const SERVICES = [
   {
     title: 'Wedding Photography',
     description: 'Capturing the grand celebrations and intimate moments of your big day with a cinematic flair.',
-    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800',
+    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/1',
     features: ['Full Day Coverage', 'High-Res Edited Photos', 'Cinematic Highlight Video', 'Premium Wedding Album']
   },
   {
     title: 'Pre-Wedding Shoot',
     description: 'Tell your love story through beautiful, romantic shots at stunning locations.',
-    image: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=800',
+    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/2',
     features: ['2-3 Locations', 'Multiple Outfit Changes', 'Drone Shots Included', 'Digital Gallery Access']
   },
   {
     title: 'Maternity & Baby',
     description: 'Cherish the beautiful journey of motherhood and the first smiles of your little one.',
-    image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=800',
+    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/5',
     features: ['Home or Studio Session', 'Props Provided', 'Gentle Posing Guidance', 'Edited Digital Photos']
   }
 ];

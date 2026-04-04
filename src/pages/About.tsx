@@ -43,8 +43,8 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&q=80&w=1000"
-                alt="Indian Photographer at work"
+                src="https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/8"
+                alt="Indian Couple Walking"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
