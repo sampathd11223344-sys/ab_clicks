@@ -17,7 +17,7 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: '1', 
     title: 'Serene Boat Wedding Shoot', 
     category: 'Wedding', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/1', 
+    imageUrl: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200', 
     link: 'https://www.instagram.com/p/DVig8fok_Vy/',
     description: 'A romantic boat ride capturing the serene beauty of a couple in traditional Indian wedding attire.'
   },
@@ -25,7 +25,7 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: '2', 
     title: 'Lakeside Pre-Wedding Bliss', 
     category: 'Pre-Wedding', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/2', 
+    imageUrl: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=1200', 
     link: 'https://www.instagram.com/p/DVZ_zn8k1jp/',
     description: 'Capturing intimate moments amidst the lily pads, a perfect pre-wedding celebration of love.'
   },
@@ -33,7 +33,7 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: '3', 
     title: 'Cinematic Gazebo Portraits', 
     category: 'Portrait', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/3', 
+    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1200', 
     link: 'https://www.instagram.com/p/DVDajxLE8AT/',
     description: 'Elegant portraits captured under the soft glow of a white gazebo, creating a timeless cinematic feel.'
   },
@@ -41,7 +41,7 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: '4', 
     title: 'Vibrant Lakeside Celebration', 
     category: 'Wedding', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/4', 
+    imageUrl: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?auto=format&fit=crop&q=80&w=1200', 
     link: 'https://www.instagram.com/p/DRgiVIIk8qV/',
     description: 'Joyful moments on the water, reflecting the vibrant colors and traditions of an Indian wedding.'
   },
@@ -49,7 +49,7 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: '5', 
     title: 'Graceful Maternity Portraits', 
     category: 'Maternity', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/5', 
+    imageUrl: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=1200', 
     link: 'https://www.instagram.com/reel/DReov7mE5PW/',
     description: 'Celebrating the beauty of motherhood with graceful portraits in a lush green setting.'
   },
@@ -57,7 +57,7 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: '6', 
     title: 'Joyful Save the Date', 
     category: 'Pre-Wedding', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/6', 
+    imageUrl: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&q=80&w=1200', 
     link: 'https://www.instagram.com/reel/DR7Iwmuk1rw/',
     description: 'A playful and joyful save-the-date moment, capturing the excitement of the journey ahead.'
   },
@@ -65,14 +65,14 @@ const SAMPLE_GALLERY: GalleryItem[] = [
     id: '7', 
     title: 'Baby Milestone Shoot', 
     category: 'Baby', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/7', 
+    imageUrl: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=1200', 
     description: 'Capturing the innocent smiles and precious milestones of your little ones.'
   },
   { 
     id: '8', 
     title: 'Elegant Outdoor Portraits', 
     category: 'Portrait', 
-    imageUrl: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/8', 
+    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200', 
     description: 'Timeless outdoor portraits that capture the natural beauty and personality of our clients.'
   },
 ];
@@ -128,6 +128,8 @@ export default function Gallery() {
                 src={item.imageUrl}
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
               {/* Always visible title overlay */}
@@ -171,6 +173,8 @@ export default function Gallery() {
                 src={selectedImage.imageUrl}
                 alt={selectedImage.title}
                 className="w-full h-full object-contain rounded-xl"
+                loading="eager"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
               <div className="mt-6 text-center">

@@ -5,37 +5,37 @@ const ALL_SERVICES = [
   {
     title: 'Wedding Photography',
     description: 'Comprehensive coverage of your wedding day, from getting ready to the final farewell.',
-    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/1',
+    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800',
     features: ['Full Day Coverage', '2 Photographers', '1000+ Edited Photos', 'Premium Wedding Album', 'Online Gallery']
   },
   {
     title: 'Pre-Wedding Shoot',
     description: 'Romantic and artistic photoshoots at scenic locations to celebrate your engagement.',
-    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/2',
+    image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=800',
     features: ['3-4 Locations', 'Outfit Changes', 'Drone Photography', 'Cinematic Teaser Video', 'All Raw Images']
   },
   {
     title: 'Cinematic Videography',
     description: 'High-definition cinematic films that tell your story like a Bollywood masterpiece.',
-    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/3',
+    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800',
     features: ['4K Video Quality', 'Cinematic Storytelling', 'Professional Sound Design', '15-20 Min Highlight Film', 'Full Event Recording']
   },
   {
     title: 'Maternity Shoot',
     description: 'Celebrate the glow of motherhood with a graceful and artistic photoshoot.',
-    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/5',
+    image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=800',
     features: ['Studio or Outdoor', 'Gown Rentals Available', 'Gentle Posing Guidance', 'Family Included', '20 Retouched Photos']
   },
   {
     title: 'Baby & Kids Shoot',
     description: 'Capture the innocent smiles and playful moments of your children.',
-    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/7',
+    image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=800',
     features: ['Fun Props & Themes', 'Patient Photographers', 'Home Setup Available', 'Digital Downloads', 'Custom Photo Book']
   },
   {
     title: 'Event Coverage',
     description: 'Professional photography for birthdays, anniversaries, and corporate events.',
-    image: 'https://ais-dev-a6pxgebj4hjay4h6fzp7f3-619454763335.asia-east1.run.app/api/attachments/9',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800',
     features: ['Candid & Group Shots', 'Fast Turnaround', 'High-Res Digital Files', 'Social Media Ready', 'Professional Lighting']
   }
 ];

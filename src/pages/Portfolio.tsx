@@ -47,7 +47,7 @@ export default function Portfolio() {
                 rel="noopener noreferrer"
                 className="relative aspect-video rounded-3xl overflow-hidden group cursor-pointer"
               >
-                <img src={video.url} alt={video.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                <img src={video.url} alt={video.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                   <div className="w-20 h-20 bg-amber-600/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                     <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2" />

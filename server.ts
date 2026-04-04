@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,22 +23,25 @@ async function startServer() {
     });
     app.use(vite.middlewares);
     
-    // SPA fallback for dev mode
-    app.use('*', async (req, res, next) => {
+    // SPA fallback for dev mode - handle all non-asset requests
+    app.get('*', async (req, res, next) => {
       const url = req.originalUrl;
+      
+      // Skip if it looks like an asset request (has a file extension)
+      if (url.includes('.') && !url.endsWith('.html')) {
+        return next();
+      }
+
       try {
-        const template = await vite.transformIndexHtml(url, `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AB Clicks</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>`);
+        // Read index.html from root
+        const indexPath = path.resolve(__dirname, "index.html");
+        if (!fs.existsSync(indexPath)) {
+          return res.status(404).send("index.html not found");
+        }
+        
+        let template = fs.readFileSync(indexPath, "utf-8");
+        // Transform it with Vite
+        template = await vite.transformIndexHtml(url, template);
         res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
       } catch (e) {
         vite.ssrFixStacktrace(e as Error);
