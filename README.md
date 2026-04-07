@@ -1,69 +1,20 @@
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-# 📸 AB Clicks – Photography Portfolio Website
+# Run and deploy your AI Studio app
 
-A modern and responsive photography portfolio website built for **AB Clicks Studio** to showcase services, attract clients, and enable quick bookings via WhatsApp.
+This contains everything you need to run your app locally.
 
----
+View your app in AI Studio: https://ai.studio/apps/0167d3c6-009c-489a-abad-9860c7b3945a
 
-## 🌐 Live Website
+## Run Locally
 
-👉 https://ab-clicks-69yd.vercel.app/
+**Prerequisites:**  Node.js
 
----
 
-## 🧾 About the Project
-
-**AB Clicks** is a real client-based project designed to help a photography studio establish a strong online presence.
-
-The website highlights photography work, displays services with pricing, and allows customers to easily connect through WhatsApp.
-
----
-
-## 🧑‍💼 About the Client
-
-AB Clicks Studio specializes in:
-
-- Wedding Photography  
-- Pre-Wedding Shoots  
-- Birthday Events  
-- Studio Portraits  
-- Outdoor Photography  
-
-The client recently expanded their business and needed a website to improve visibility and attract more customers.
-
----
-
-## 🎯 Project Objectives
-
-- Build a modern and attractive portfolio  
-- Clearly display services and pricing  
-- Enable instant customer contact  
-- Improve brand professionalism  
-- Ensure mobile responsiveness  
-
----
-
-## ✨ Features
-
-- 📷 Photography portfolio showcase  
-- 💼 Services with pricing  
-- 🎁 Gift section with frame pricing  
-- 📱 Fully responsive design  
-- 💬 WhatsApp booking integration  
-- ⚡ Fast and smooth performance  
-
----
-
-## 🧩 Website Sections
-
-- **Home** – Introduction and branding  
-- **Portfolio** – Gallery of work  
-- **Services** – Photography services with pricing  
-- **Gift Section** – Frames and gift items  
-- **Contact** – WhatsApp booking  
-
----
-
-## 📲 WhatsApp Booking
-
-Customers can directly contact via WhatsApp:
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

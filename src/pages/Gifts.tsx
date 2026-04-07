@@ -8,7 +8,7 @@ const PRODUCTS = [
     price: '₹1300',
     description: 'High-quality printed frame with premium finish, perfect for special memories',
     tag: 'Door Delivery Free',
-    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=75&w=800&fm=webp',
     features: ['Premium Matte Finish', 'Durable Wood Frame', 'High-Res Printing', 'Wall Mount Ready']
   },
   {
@@ -17,7 +17,7 @@ const PRODUCTS = [
     price: '₹700',
     description: 'Beautiful couple frame with clear print and elegant design',
     tag: 'Available for Delivery',
-    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=75&w=800&fm=webp',
     features: ['Elegant Design', 'Crystal Clear Glass', 'Perfect for Gifting', 'Tabletop or Wall Mount']
   },
   {
@@ -26,7 +26,7 @@ const PRODUCTS = [
     price: 'Starting from ₹500',
     description: 'Customized frames for birthdays, weddings, and special occasions',
     tag: 'Personalized',
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=75&w=800&fm=webp',
     features: ['Fully Customizable', 'Multiple Sizes', 'Collage Options', 'Fast Turnaround']
   }
 ];

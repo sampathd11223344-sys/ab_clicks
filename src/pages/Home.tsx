@@ -9,19 +9,19 @@ const SERVICES = [
   {
     title: 'Wedding Photography',
     description: 'Capturing the grand celebrations and intimate moments of your big day with a cinematic flair.',
-    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=75&w=800&fm=webp',
     features: ['Full Day Coverage', 'High-Res Edited Photos', 'Cinematic Highlight Video', 'Premium Wedding Album']
   },
   {
     title: 'Pre-Wedding Shoot',
     description: 'Tell your love story through beautiful, romantic shots at stunning locations.',
-    image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=75&w=800&fm=webp',
     features: ['2-3 Locations', 'Multiple Outfit Changes', 'Drone Shots Included', 'Digital Gallery Access']
   },
   {
     title: 'Maternity & Baby',
     description: 'Cherish the beautiful journey of motherhood and the first smiles of your little one.',
-    image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&q=75&w=800&fm=webp',
     features: ['Home or Studio Session', 'Props Provided', 'Gentle Posing Guidance', 'Edited Digital Photos']
   }
 ];
@@ -32,21 +32,21 @@ const GIFTS = [
     title: 'Candid Memory Frame (12x18)',
     price: '₹1300',
     tag: 'Door Delivery Free',
-    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=75&w=800&fm=webp',
   },
   {
     id: '2',
     title: 'Couple Frame (10x15)',
     price: '₹700',
     tag: 'Available for Delivery',
-    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=75&w=800&fm=webp',
   },
   {
     id: '3',
     title: 'Custom Gift Frames',
     price: 'Starting from ₹500',
     tag: 'Personalized',
-    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=75&w=800&fm=webp',
   }
 ];
 

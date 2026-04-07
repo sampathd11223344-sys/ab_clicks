@@ -1,8 +1,11 @@
 import { Outlet } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import WhatsAppButton from './WhatsAppButton';
-import PWAInstallPrompt from './PWAInstallPrompt';
+
+// Lazy load non-critical components
+const WhatsAppButton = lazy(() => import('./WhatsAppButton'));
+const PWAInstallPrompt = lazy(() => import('./PWAInstallPrompt'));
 
 export default function Layout() {
   return (
@@ -12,8 +15,10 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <WhatsAppButton />
-      <PWAInstallPrompt />
+      <Suspense fallback={null}>
+        <WhatsAppButton />
+        <PWAInstallPrompt />
+      </Suspense>
     </div>
   );
 }
