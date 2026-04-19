@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { collection, query, orderBy, onSnapshot, updateDoc, doc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, auth, storage } from '../firebase';
+import { db, auth } from '../firebase';
 import { useAuth } from '../hooks/useAuth';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
@@ -106,20 +105,35 @@ export default function Admin() {
       const fileInput = (e.currentTarget.elements.namedItem('imageFile') as HTMLInputElement);
       if (fileInput.files?.[0] && !imageUrlInput) {
         const file = fileInput.files[0];
+        const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+        const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
+        if (!cloudName || !uploadPreset) {
+          alert('Cloudinary configuration missing. Please add VITE_CLOUDINARY_CLOUD_NAME and VITE_CLOUDINARY_UPLOAD_PRESET to your environment variables (Settings > Secrets).');
+          setUploadProgress(false);
+          return;
+        }
+
+        const formDataCloudinary = new FormData();
+        formDataCloudinary.append('file', file);
+        formDataCloudinary.append('upload_preset', uploadPreset);
+
         try {
-          const storageRef = ref(storage, `products/${Date.now()}_${file.name}`);
-          // Add a timeout to the upload
-          const uploadTask = uploadBytes(storageRef, file);
-          const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Upload timed out. Firebase Storage might be disabled or requiring upgrade.')), 8000));
-          
-          await Promise.race([uploadTask, timeout]);
-          productData.image = await getDownloadURL(storageRef);
-        } catch (storageError: any) {
-          console.error("Storage Error:", storageError);
-          const msg = storageError.message.includes('upgrade') 
-            ? "Your project requires an upgrade for Storage. Use the 'Image URL' field instead for a free fallback!"
-            : storageError.message;
-          alert(`Storage Error: ${msg}`);
+          const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+            method: 'POST',
+            body: formDataCloudinary
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error?.message || 'Cloudinary upload failed');
+          }
+
+          const data = await response.json();
+          productData.image = data.secure_url;
+        } catch (uploadError: any) {
+          console.error("Cloudinary Error:", uploadError);
+          alert(`Upload Error: ${uploadError.message}`);
           setUploadProgress(false);
           return;
         }
