@@ -1,5 +1,6 @@
 import ServiceCard from '../components/ServiceCard';
 import { motion } from 'motion/react';
+import SEO from '../components/SEO';
 
 const ALL_SERVICES = [
   {
@@ -43,6 +44,11 @@ const ALL_SERVICES = [
 export default function Services() {
   return (
     <div className="pt-32 pb-24 px-6">
+      <SEO 
+        title="Our Services" 
+        description="Explore our photography and cinematography services. From wedding packages and pre-wedding shoots to cinematic event films and maternity sessions."
+        keywords="photography services, wedding packages, cinematography services, event videography, maternity shoot"
+      />
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <motion.h1

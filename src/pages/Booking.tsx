@@ -1,10 +1,16 @@
 import { motion } from 'motion/react';
 import BookingForm from '../components/BookingForm';
 import { Calendar, Clock, MapPin, Phone } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Booking() {
   return (
     <div className="pt-32 pb-24 px-6">
+      <SEO 
+        title="Book a Shoot" 
+        description="Book your next professional photoshoot with AB Clicks. Choose from wedding photography, pre-wedding films, maternity sessions, or event coverage."
+        keywords="book photographer, hire wedding photographer, professional photoshoot booking, photography reservation"
+      />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Info Side */}

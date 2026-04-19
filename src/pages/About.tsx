@@ -1,9 +1,15 @@
 import { motion } from 'motion/react';
 import { Camera, Users, Award, Heart } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function About() {
   return (
     <div className="pt-32 pb-24 px-6">
+      <SEO 
+        title="About Us" 
+        description="Learn more about AB Clicks, our journey since 2015, and our passion for capturing visual masterpieces and emotional stories."
+        keywords="about AB Clicks, photography team, professional photographers, cinematography story"
+      />
       <div className="max-w-7xl mx-auto">
         {/* Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">

@@ -1,9 +1,15 @@
 import Gallery from '../components/Gallery';
 import { motion } from 'motion/react';
+import SEO from '../components/SEO';
 
 export default function Portfolio() {
   return (
     <div className="pt-32 pb-24">
+      <SEO 
+        title="Portfolio" 
+        description="Browse through our portfolio of cinematic wedding highlights, birthday celebrations, and soulful film projects by AB Clicks."
+        keywords="photography portfolio, cinematography portfolio, wedding videos, cinematic films, baby shoot gallery"
+      />
       <div className="px-6 text-center mb-12">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

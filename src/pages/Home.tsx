@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 import ServiceCard from '../components/ServiceCard';
+import SEO from '../components/SEO';
 import { motion } from 'motion/react';
 import { Star, Quote, ArrowRight, Gift, ShoppingBag, CheckCircle, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -67,6 +68,10 @@ export default function Home() {
 
   return (
     <div>
+      <SEO 
+        title="Home" 
+        description="Welcome to AB Clicks - India's leading photography and cinematography team. We specialize in weddings, maternity, baby shoots, and cinematic event coverage."
+      />
       <Hero />
 
       {/* Services Preview */}

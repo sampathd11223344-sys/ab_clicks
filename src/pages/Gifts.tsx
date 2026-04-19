@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import { motion } from 'motion/react';
+import SEO from '../components/SEO';
 import { ShoppingBag, Truck, Gift, CheckCircle, Loader2 } from 'lucide-react';
 
 export default function Gifts() {
@@ -21,6 +22,11 @@ export default function Gifts() {
 
   return (
     <div className="pt-32 pb-24">
+      <SEO 
+        title="Gifts & Frames" 
+        description="Preserve your memories with beautifully crafted frames and custom gifts from AB Clicks. Browse our collection of memory frames, couple frames, and personalized gifts."
+        keywords="custom frames, photo gifts, personalized frames, memory frames, AB Clicks gifts"
+      />
       <div className="px-6 text-center mb-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

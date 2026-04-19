@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Instagram, Youtube, MessageCircle, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const socialLinks = [
@@ -10,6 +11,11 @@ export default function Contact() {
 
   return (
     <div className="pt-32 pb-24 px-6">
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with AB Clicks for professional photography and cinematography services. We are based in Yellamanchili, Andhra Pradesh."
+        keywords="contact AB Clicks, photography studio contact, hire cinematic videographer, wedding photography inquiry"
+      />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info */}
