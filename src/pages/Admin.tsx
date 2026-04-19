@@ -89,40 +89,60 @@ export default function Admin() {
   // Product handlers
   const handleSaveProduct = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const productData = {
-      title: formData.get('title') as string,
-      price: formData.get('price') as string,
-      description: formData.get('description') as string,
-      tag: formData.get('tag') as string,
-      features: (formData.get('features') as string).split(',').map(f => f.trim()).filter(f => f),
-      image: editingProduct?.image || '',
-      updatedAt: serverTimestamp()
-    };
+    setUploadProgress(true);
+    
+    try {
+      const formData = new FormData(e.currentTarget);
+      const productData: any = {
+        title: formData.get('title') as string,
+        price: formData.get('price') as string,
+        description: formData.get('description') as string,
+        tag: formData.get('tag') as string,
+        features: (formData.get('features') as string).split(',').map(f => f.trim()).filter(f => f),
+        image: editingProduct?.image || '',
+      };
 
-    const fileInput = (e.currentTarget.elements.namedItem('imageFile') as HTMLInputElement);
-    if (fileInput.files?.[0]) {
-      setUploadProgress(true);
-      const file = fileInput.files[0];
-      const storageRef = ref(storage, `products/${Date.now()}_${file.name}`);
-      await uploadBytes(storageRef, file);
-      productData.image = await getDownloadURL(storageRef);
+      const fileInput = (e.currentTarget.elements.namedItem('imageFile') as HTMLInputElement);
+      if (fileInput.files?.[0]) {
+        const file = fileInput.files[0];
+        try {
+          const storageRef = ref(storage, `products/${Date.now()}_${file.name}`);
+          await uploadBytes(storageRef, file);
+          productData.image = await getDownloadURL(storageRef);
+        } catch (storageError: any) {
+          console.error("Storage Error:", storageError);
+          alert(`Failed to upload image: ${storageError.message}. Make sure Firebase Storage is enabled in the console.`);
+          setUploadProgress(false);
+          return;
+        }
+      }
+
+      if (!productData.image) {
+        alert('Please upload an image first');
+        setUploadProgress(false);
+        return;
+      }
+
+      const finalData = {
+        ...productData,
+        updatedAt: serverTimestamp()
+      };
+
+      if (editingProduct?.id) {
+        await updateDoc(doc(db, 'products', editingProduct.id), finalData);
+      } else {
+        await addDoc(collection(db, 'products'), { ...finalData, createdAt: serverTimestamp() });
+      }
+
+      setIsAddingProduct(false);
+      setEditingProduct(null);
+      alert('Product saved successfully!');
+    } catch (firestoreError: any) {
+      console.error("Firestore Error:", firestoreError);
+      alert(`Failed to save product: ${firestoreError.message}`);
+    } finally {
       setUploadProgress(false);
     }
-
-    if (!productData.image) {
-      alert('Please upload an image first');
-      return;
-    }
-
-    if (editingProduct?.id) {
-      await updateDoc(doc(db, 'products', editingProduct.id), productData);
-    } else {
-      await addDoc(collection(db, 'products'), { ...productData, createdAt: serverTimestamp() });
-    }
-
-    setIsAddingProduct(false);
-    setEditingProduct(null);
   };
 
   const handleDeleteProduct = async (id: string) => {
