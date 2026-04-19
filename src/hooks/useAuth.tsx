@@ -11,19 +11,47 @@ export function useAuth() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setLoading(true);
-      if (firebaseUser) {
-        setUser(firebaseUser);
-        const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
-        if (userDoc.exists()) {
-          setRole(userDoc.data().role);
-        } else if (firebaseUser.email === 'sampathdadi0921@gmail.com' || firebaseUser.email === 'd6036883@gmail.com') {
-          setRole('admin');
+      try {
+        if (firebaseUser) {
+          setUser(firebaseUser);
+          
+          // Use a promise with a timeout to prevent hanging if the DB is not initialized
+          const fetchRole = async () => {
+            try {
+              const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+              if (userDoc.exists()) {
+                setRole(userDoc.data().role);
+              } else if (firebaseUser.email === 'sampathdadi0921@gmail.com' || firebaseUser.email === 'd6036883@gmail.com') {
+                setRole('admin');
+              }
+            } catch (e) {
+              console.error("Auth DB check failed:", e);
+              // Fallback to admin based on email even if DB fetch fails
+              if (firebaseUser.email === 'sampathdadi0921@gmail.com' || firebaseUser.email === 'd6036883@gmail.com') {
+                setRole('admin');
+              }
+            }
+          };
+
+          // Give the DB check 3 seconds, otherwise proceed with email-only check
+          await Promise.race([
+            fetchRole(),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 3000))
+          ]).catch(() => {
+            console.warn("Auth check timed out, falling back to email check.");
+            if (firebaseUser.email === 'sampathdadi0921@gmail.com' || firebaseUser.email === 'd6036883@gmail.com') {
+              setRole('admin');
+            }
+          });
+        } else {
+          setUser(null);
+          setRole(null);
         }
-      } else {
-        setUser(null);
-        setRole(null);
+      } catch (err) {
+        console.error("Auth observer error:", err);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => unsubscribe();
