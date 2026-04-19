@@ -53,12 +53,28 @@
         "role": { "type": "string", "enum": ["admin", "user"], "description": "User role" }
       },
       "required": ["name", "email", "role"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "A gift or frame available for purchase.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Name of the product" },
+        "price": { "type": "string", "description": "Price of the product (e.g., ₹1300)" },
+        "description": { "type": "string", "description": "Product description" },
+        "tag": { "type": "string", "description": "Tag (e.g., Door Delivery Free)" },
+        "image": { "type": "string", "description": "URL of the product image" },
+        "features": { "type": "array", "items": { "type": "string" }, "description": "List of features" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When it was added" }
+      },
+      "required": ["title", "price", "image"]
     }
   },
   "firestore": {
     "/bookings/{bookingId}": { "schema": "Booking", "description": "Collection of all bookings" },
     "/gallery/{itemId}": { "schema": "GalleryItem", "description": "Collection of portfolio items" },
     "/services/{serviceId}": { "schema": "Service", "description": "Collection of services offered" },
-    "/users/{userId}": { "schema": "User", "description": "Collection of user profiles" }
+    "/users/{userId}": { "schema": "User", "description": "Collection of user profiles" },
+    "/products/{productId}": { "schema": "Product", "description": "Collection of gift products" }
   }
 }
