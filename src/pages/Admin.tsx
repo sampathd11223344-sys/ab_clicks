@@ -93,25 +93,33 @@ export default function Admin() {
     
     try {
       const formData = new FormData(e.currentTarget);
+      const imageUrlInput = formData.get('imageUrl') as string;
       const productData: any = {
         title: formData.get('title') as string,
         price: formData.get('price') as string,
         description: formData.get('description') as string,
         tag: formData.get('tag') as string,
         features: (formData.get('features') as string).split(',').map(f => f.trim()).filter(f => f),
-        image: editingProduct?.image || '',
+        image: imageUrlInput || editingProduct?.image || '',
       };
 
       const fileInput = (e.currentTarget.elements.namedItem('imageFile') as HTMLInputElement);
-      if (fileInput.files?.[0]) {
+      if (fileInput.files?.[0] && !imageUrlInput) {
         const file = fileInput.files[0];
         try {
           const storageRef = ref(storage, `products/${Date.now()}_${file.name}`);
-          await uploadBytes(storageRef, file);
+          // Add a timeout to the upload
+          const uploadTask = uploadBytes(storageRef, file);
+          const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('Upload timed out. Firebase Storage might be disabled or requiring upgrade.')), 8000));
+          
+          await Promise.race([uploadTask, timeout]);
           productData.image = await getDownloadURL(storageRef);
         } catch (storageError: any) {
           console.error("Storage Error:", storageError);
-          alert(`Failed to upload image: ${storageError.message}. Make sure Firebase Storage is enabled in the console.`);
+          const msg = storageError.message.includes('upgrade') 
+            ? "Your project requires an upgrade for Storage. Use the 'Image URL' field instead for a free fallback!"
+            : storageError.message;
+          alert(`Storage Error: ${msg}`);
           setUploadProgress(false);
           return;
         }
@@ -425,7 +433,7 @@ export default function Admin() {
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Product Image</label>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Product Image (Upload File)</label>
                         <div className="relative group">
                           {editingProduct?.image ? (
                             <img src={editingProduct.image} className="w-full h-32 object-cover rounded-2xl" />
@@ -442,6 +450,11 @@ export default function Admin() {
                             className="absolute inset-0 opacity-0 cursor-pointer"
                           />
                         </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">OR Image URL (Free Alternative)</label>
+                        <input name="imageUrl" placeholder="https://site.com/photo.jpg" defaultValue={editingProduct?.image} className="w-full px-5 py-3 bg-gray-50 dark:bg-zinc-800 border-none rounded-2xl outline-none focus:ring-2 focus:ring-amber-500" />
+                        <p className="text-[9px] text-gray-400 mt-1 uppercase font-bold tracking-widest">Use this if Storage asks for upgrade</p>
                       </div>
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Features (comma separated)</label>
