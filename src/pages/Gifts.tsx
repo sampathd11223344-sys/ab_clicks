@@ -68,6 +68,7 @@ export default function Gifts() {
                     src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
                   />
                   {product.tag && (
                     <div className="absolute top-6 left-6">

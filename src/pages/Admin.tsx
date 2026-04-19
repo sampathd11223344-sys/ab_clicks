@@ -356,22 +356,46 @@ export default function Admin() {
               {products.map((p) => (
                 <div key={p.id} className="bg-white dark:bg-zinc-900 rounded-[2rem] overflow-hidden border border-gray-100 dark:border-zinc-800 shadow-sm group">
                   <div className="aspect-[4/3] relative">
-                    <img src={p.image} className="w-full h-full object-cover" />
+                    <img 
+                      src={p.image} 
+                      className="w-full h-full object-cover" 
+                      referrerPolicy="no-referrer"
+                    />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
                       <button 
                         onClick={() => {
                           setEditingProduct(p);
                           setIsAddingProduct(true);
                         }}
-                        className="p-3 bg-white text-zinc-900 rounded-full hover:bg-amber-600 hover:text-white transition-all"
+                        className="p-3 bg-white text-zinc-900 rounded-full hover:bg-amber-600 hover:text-white transition-all shadow-xl"
+                        title="Edit Product"
                       >
                         <ImageIcon className="w-5 h-5" />
                       </button>
                       <button 
                         onClick={() => handleDeleteProduct(p.id)}
-                        className="p-3 bg-white text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all"
+                        className="p-3 bg-white text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all shadow-xl"
+                        title="Delete Product"
                       >
                         <Trash2 className="w-5 h-5" />
+                      </button>
+                    </div>
+                    {/* Persistent Edit/Delete for Mobile/Touch UX */}
+                    <div className="absolute top-4 right-4 flex flex-col gap-2 lg:hidden">
+                       <button 
+                        onClick={() => {
+                          setEditingProduct(p);
+                          setIsAddingProduct(true);
+                        }}
+                        className="p-2.5 bg-white/90 backdrop-blur text-zinc-900 rounded-xl shadow-lg border border-white/20"
+                      >
+                        <ImageIcon className="w-4 h-4" />
+                      </button>
+                      <button 
+                        onClick={() => handleDeleteProduct(p.id)}
+                        className="p-2.5 bg-red-500/90 backdrop-blur text-white rounded-xl shadow-lg border border-white/20"
+                      >
+                        <Trash2 className="w-4 h-4" />
                       </button>
                     </div>
                   </div>
@@ -436,7 +460,11 @@ export default function Admin() {
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Product Image (Upload File)</label>
                         <div className="relative group">
                           {editingProduct?.image ? (
-                            <img src={editingProduct.image} className="w-full h-32 object-cover rounded-2xl" />
+                            <img 
+                              src={editingProduct.image} 
+                              className="w-full h-32 object-cover rounded-2xl" 
+                              referrerPolicy="no-referrer" 
+                            />
                           ) : (
                             <div className="w-full h-32 bg-gray-100 dark:bg-zinc-800 rounded-2xl flex flex-col items-center justify-center text-gray-400 border-2 border-dashed border-gray-200 dark:border-zinc-700">
                               <ImageIcon className="w-8 h-8 mb-1" />

@@ -137,6 +137,7 @@ export default function Home() {
                     src={gift.image}
                     alt={gift.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-6 left-6">
                     <span className="bg-amber-600 text-white px-4 py-1 rounded-full text-[10px] font-bold shadow-lg">
