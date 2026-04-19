@@ -481,8 +481,10 @@ export default function Admin() {
                       </div>
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">OR Image URL (Free Alternative)</label>
-                        <input name="imageUrl" placeholder="https://site.com/photo.jpg" defaultValue={editingProduct?.image} className="w-full px-5 py-3 bg-gray-50 dark:bg-zinc-800 border-none rounded-2xl outline-none focus:ring-2 focus:ring-amber-500" />
-                        <p className="text-[9px] text-gray-400 mt-1 uppercase font-bold tracking-widest">Use this if Storage asks for upgrade</p>
+                        <input name="imageUrl" placeholder="https://i.ibb.co/..." defaultValue={editingProduct?.image} className="w-full px-5 py-3 bg-gray-50 dark:bg-zinc-800 border-none rounded-2xl outline-none focus:ring-2 focus:ring-amber-500" />
+                        <p className="text-[10px] text-gray-400 mt-2 font-medium">
+                          Tip: Use <a href="https://imgbb.com" target="_blank" rel="noopener noreferrer" className="text-amber-500 underline">ImgBB</a> or <a href="https://postimages.org" target="_blank" rel="noopener noreferrer" className="text-amber-500 underline">PostImages</a>. Copy the <strong className="text-amber-600">Direct Link</strong>!
+                        </p>
                       </div>
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Features (comma separated)</label>
