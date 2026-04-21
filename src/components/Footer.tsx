@@ -12,11 +12,14 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-950 text-white pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-        {/* Brand */}
         <div className="space-y-6">
-          <Link to="/" className="flex items-center gap-2">
-            <Camera className="w-8 h-8 text-amber-500" />
-            <span className="text-2xl font-bold tracking-tighter text-amber-500">AB CLICKS</span>
+          <Link to="/" className="inline-block py-1">
+            <img 
+              src="https://ik.imagekit.io/ii90mdvyj/1776702280139.png" 
+              alt="AB CLICKS" 
+              className="h-16 w-16 rounded-full object-cover border-2 border-amber-500/20 brightness-110"
+              referrerPolicy="no-referrer"
+            />
           </Link>
           <p className="text-gray-400 font-light leading-relaxed">
             Capturing the soul of Indian weddings and events with a cinematic touch. 

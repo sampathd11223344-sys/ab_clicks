@@ -56,8 +56,13 @@ export default function PWAInstallPrompt() {
           </button>
 
           <div className="flex items-start gap-4">
-            <div className="bg-amber-600/20 p-3 rounded-2xl">
-              <Smartphone className="w-8 h-8 text-amber-500" />
+            <div className="bg-amber-100 dark:bg-amber-900/30 p-1 rounded-full overflow-hidden border-2 border-amber-500/20 shadow-sm shrink-0">
+              <img 
+                src="https://ik.imagekit.io/ii90mdvyj/1776702280139.png" 
+                alt="Logo" 
+                className="w-12 h-12 rounded-full object-cover brightness-110" 
+                referrerPolicy="no-referrer" 
+              />
             </div>
             <div className="flex-1">
               <h4 className="text-lg font-bold text-white mb-1">Install AB Clicks App</h4>

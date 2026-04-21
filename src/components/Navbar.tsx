@@ -40,11 +40,13 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group">
-          <Camera className="w-8 h-8 text-amber-500 group-hover:rotate-12 transition-transform" />
-          <span className="text-2xl font-bold tracking-tighter text-amber-600 dark:text-amber-500">
-            AB CLICKS
-          </span>
+        <Link to="/" className="flex items-center group py-1">
+          <img 
+            src="https://ik.imagekit.io/ii90mdvyj/1776702280139.png" 
+            alt="AB CLICKS" 
+            className="h-12 w-12 rounded-full object-cover border-2 border-amber-500/20 brightness-110"
+            referrerPolicy="no-referrer"
+          />
         </Link>
 
         {/* Desktop Nav */}

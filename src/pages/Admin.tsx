@@ -152,8 +152,13 @@ export default function Admin() {
           animate={{ opacity: 1, scale: 1 }}
           className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-zinc-800 w-full max-w-md"
         >
-          <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-            <LogIn className="w-8 h-8 text-amber-600" />
+          <div className="w-24 h-24 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-6 mx-auto overflow-hidden p-1.5 border-4 border-amber-500/20">
+            <img 
+              src="https://ik.imagekit.io/ii90mdvyj/1776702280139.png" 
+              alt="AB CLICKS" 
+              className="w-full h-full rounded-full object-cover brightness-110" 
+              referrerPolicy="no-referrer" 
+            />
           </div>
           <h1 className="text-3xl font-bold mb-2 text-center">Admin Login</h1>
           <p className="text-gray-500 text-center mb-8 text-sm">Secure access for AB Clicks Management</p>
