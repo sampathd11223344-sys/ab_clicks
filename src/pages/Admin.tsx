@@ -24,6 +24,7 @@ export default function Admin() {
   const [isAddingProduct, setIsAddingProduct] = useState(false);
   const [editingProduct, setEditingProduct] = useState<any>(null);
   const [uploadProgress, setUploadProgress] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   // Login state
   const [email, setEmail] = useState('');
@@ -159,6 +160,7 @@ export default function Admin() {
 
       setIsAddingProduct(false);
       setEditingProduct(null);
+      setImagePreview(null);
       alert('Product saved successfully!');
     } catch (firestoreError: any) {
       console.error("Firestore Error:", firestoreError);
@@ -450,7 +452,10 @@ export default function Admin() {
               >
                 <div className="p-8 border-b border-gray-50 dark:border-zinc-800 flex justify-between items-center">
                   <h3 className="text-2xl font-bold">{editingProduct ? 'Edit' : 'Add New'} Product</h3>
-                  <button onClick={() => setIsAddingProduct(false)} className="p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-full">
+                  <button onClick={() => {
+                    setIsAddingProduct(false);
+                    setImagePreview(null);
+                  }} className="p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-full">
                     <X className="w-6 h-6" />
                   </button>
                 </div>
@@ -476,9 +481,9 @@ export default function Admin() {
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Product Image (Upload File)</label>
                         <div className="relative group">
-                          {editingProduct?.image ? (
+                          {imagePreview || editingProduct?.image ? (
                             <img 
-                              src={editingProduct.image} 
+                              src={imagePreview || editingProduct.image} 
                               className="w-full h-32 object-cover rounded-2xl" 
                               referrerPolicy="no-referrer" 
                             />
@@ -492,6 +497,16 @@ export default function Admin() {
                             type="file" 
                             name="imageFile" 
                             accept="image/*"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                const reader = new FileReader();
+                                reader.onloadend = () => {
+                                  setImagePreview(reader.result as string);
+                                };
+                                reader.readAsDataURL(file);
+                              }
+                            }}
                             className="absolute inset-0 opacity-0 cursor-pointer"
                           />
                         </div>
