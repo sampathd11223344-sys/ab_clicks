@@ -103,8 +103,45 @@ export default function Admin() {
         image: imageUrlInput || editingProduct?.image || '',
       };
 
+      const fileInput = (e.currentTarget.elements.namedItem('imageFile') as HTMLInputElement);
+      if (fileInput.files?.[0]) {
+        const file = fileInput.files[0];
+        const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+        const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
+        if (!cloudName || !uploadPreset) {
+          alert('Cloudinary configuration missing. Please add VITE_CLOUDINARY_CLOUD_NAME and VITE_CLOUDINARY_UPLOAD_PRESET to your environment variables (Settings > Secrets).');
+          setUploadProgress(false);
+          return;
+        }
+
+        const formDataCloudinary = new FormData();
+        formDataCloudinary.append('file', file);
+        formDataCloudinary.append('upload_preset', uploadPreset);
+
+        try {
+          const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+            method: 'POST',
+            body: formDataCloudinary
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error?.message || 'Cloudinary upload failed');
+          }
+
+          const data = await response.json();
+          productData.image = data.secure_url;
+        } catch (uploadError: any) {
+          console.error("Cloudinary Error:", uploadError);
+          alert(`Upload Error: ${uploadError.message}`);
+          setUploadProgress(false);
+          return;
+        }
+      }
+
       if (!productData.image) {
-        alert('Please provide an image URL');
+        alert('Please provide an image URL or upload a file');
         setUploadProgress(false);
         return;
       }
@@ -437,10 +474,32 @@ export default function Admin() {
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Image Link (Cloudinary URL)</label>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Product Image (Upload File)</label>
+                        <div className="relative group">
+                          {editingProduct?.image ? (
+                            <img 
+                              src={editingProduct.image} 
+                              className="w-full h-32 object-cover rounded-2xl" 
+                              referrerPolicy="no-referrer" 
+                            />
+                          ) : (
+                            <div className="w-full h-32 bg-gray-100 dark:bg-zinc-800 rounded-2xl flex flex-col items-center justify-center text-gray-400 border-2 border-dashed border-gray-200 dark:border-zinc-700">
+                              <ImageIcon className="w-8 h-8 mb-1" />
+                              <span className="text-[10px] font-bold uppercase">Click to Upload</span>
+                            </div>
+                          )}
+                          <input 
+                            type="file" 
+                            name="imageFile" 
+                            accept="image/*"
+                            className="absolute inset-0 opacity-0 cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">OR Image Link (Cloudinary URL)</label>
                         <input 
                           name="imageUrl" 
-                          required
                           placeholder="https://res.cloudinary.com/..." 
                           defaultValue={editingProduct?.image} 
                           className="w-full px-5 py-3 bg-gray-50 dark:bg-zinc-800 border-none rounded-2xl outline-none focus:ring-2 focus:ring-amber-500" 
@@ -449,16 +508,6 @@ export default function Admin() {
                           Tip: Upload your image to Cloudinary and paste the <strong className="text-amber-600">Secure URL</strong> here.
                         </p>
                       </div>
-                      {editingProduct?.image && (
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Current Preview</label>
-                          <img 
-                            src={editingProduct.image} 
-                            className="w-full h-32 object-cover rounded-2xl border border-gray-100 dark:border-zinc-800" 
-                            referrerPolicy="no-referrer" 
-                          />
-                        </div>
-                      )}
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Features (comma separated)</label>
                         <textarea name="features" defaultValue={editingProduct?.features?.join(', ')} className="w-full px-5 py-3 bg-gray-50 dark:bg-zinc-800 border-none rounded-2xl outline-none focus:ring-2 focus:ring-amber-500 min-h-[100px]" />
