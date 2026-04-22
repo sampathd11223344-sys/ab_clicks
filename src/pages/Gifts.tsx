@@ -137,7 +137,8 @@ export default function Gifts() {
           <h2 className="text-3xl font-bold mb-4 tracking-tight">Fast & Secure Delivery</h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-light">
             We ensure your precious frames are packed with care and delivered safely to your doorstep. 
-            Free delivery available on selected products in Yellamanchili and surrounding areas.
+            Free delivery available on selected products in Yellamanchili and surrounding areas. 
+            Store location: Near Srinivasa Theatre, Bypass Road.
           </p>
         </motion.div>
       </div>

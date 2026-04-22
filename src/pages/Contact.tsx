@@ -13,7 +13,7 @@ export default function Contact() {
     <div className="pt-32 pb-24 px-6">
       <SEO 
         title="Contact Us" 
-        description="Get in touch with AB Clicks for professional photography and cinematography services. We are based in Yellamanchili, Andhra Pradesh."
+        description="Get in touch with AB Clicks for professional photography and cinematography services. We are located near Srinivasa Theatre, Bypass Road, Yellamanchili."
         keywords="contact AB Clicks, photography studio contact, hire cinematic videographer, wedding photography inquiry"
       />
       <div className="max-w-7xl mx-auto">
@@ -46,7 +46,15 @@ export default function Contact() {
               <div className="p-8 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800 sm:col-span-2">
                 <MapPin className="w-8 h-8 text-amber-600 mb-4" />
                 <h4 className="font-bold mb-2">Studio Location</h4>
-                <p className="text-gray-500 dark:text-gray-500">AP grameena vikas bank, Near, Yellamanchili Gajuwaka Rd, Elamanchili, Andhra Pradesh ,531055</p>
+                <p className="text-gray-500 dark:text-gray-500">Near Srinivasa Theatre, Bypass Road, Yellamanchili, AP, 531055</p>
+                <a 
+                  href="https://maps.app.goo.gl/oiiLU1imhFiXixi79" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-amber-600 font-bold mt-4 hover:underline"
+                >
+                  Get Directions <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
 
@@ -77,7 +85,7 @@ export default function Contact() {
           >
             <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white dark:border-zinc-900">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.2!2d82.8!3d17.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a399!2sYellamanchili%2C%20Andhra%20Pradesh%20531055!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=AB%20CLICKS%20Yellamanchili%20Andhra%20Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
