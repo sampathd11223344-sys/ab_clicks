@@ -46,7 +46,7 @@ export default function Contact() {
               <div className="p-8 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800 sm:col-span-2">
                 <MapPin className="w-8 h-8 text-amber-600 mb-4" />
                 <h4 className="font-bold mb-2">Studio Location</h4>
-                <p className="text-gray-500 dark:text-gray-500">Yellamanchili, Andhra Pradesh, 531055</p>
+                <p className="text-gray-500 dark:text-gray-500">AP grameena vikas bank, Near, Yellamanchili Gajuwaka Rd, Elamanchili, Andhra Pradesh ,531055</p>
               </div>
             </div>
 
