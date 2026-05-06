@@ -73,7 +73,7 @@ export default function About() {
           ].map((item, i) => (
             <div key={i} className="p-10 bg-zinc-100 dark:bg-zinc-900 rounded-3xl border border-gray-200 dark:border-zinc-800">
               <item.icon className="w-12 h-12 text-amber-600 mb-6" />
-              <h4 className="text-2xl font-bold mb-4">{item.title}</h4>
+              <h2 className="text-2xl font-bold mb-4">{item.title}</h2>
               <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed">{item.desc}</p>
             </div>
           ))}

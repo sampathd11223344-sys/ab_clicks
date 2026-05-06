@@ -8,9 +8,11 @@ export default function Hero() {
       {/* Background Image/Video Placeholder */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=2000&fm=webp"
+          src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=60&w=1600&fm=webp"
           alt="Indian Temple Wedding Shoot"
           className="w-full h-full object-cover"
+          width="1600"
+          height="900"
           loading="eager"
           decoding="sync"
           fetchPriority="high"

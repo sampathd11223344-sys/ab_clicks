@@ -243,7 +243,11 @@ export default function Admin() {
               <ShoppingBag className="w-4 h-4" /> Gifts
             </button>
             <div className="w-px h-6 bg-gray-200 dark:bg-zinc-800 mx-1" />
-            <button onClick={handleLogout} className="p-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all">
+            <button 
+              onClick={handleLogout} 
+              className="p-2.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all"
+              aria-label="Logout"
+            >
               <LogIn className="w-5 h-5 rotate-180" />
             </button>
           </div>
@@ -313,9 +317,27 @@ export default function Admin() {
                     </div>
                     
                     <div className="flex items-center gap-2">
-                       <button onClick={() => handleStatusUpdate(b.id, 'confirmed')} className="p-3 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all"><CheckCircle className="w-4 h-4" /></button>
-                       <button onClick={() => handleStatusUpdate(b.id, 'completed')} className="p-3 bg-green-50 text-green-600 rounded-xl hover:bg-green-600 hover:text-white transition-all"><CheckCircle className="w-4 h-4" /></button>
-                       <button onClick={() => handleDeleteBooking(b.id)} className="p-3 bg-red-50 text-red-600 rounded-xl hover:bg-red-600 hover:text-white transition-all"><Trash2 className="w-4 h-4" /></button>
+                       <button 
+                         onClick={() => handleStatusUpdate(b.id, 'confirmed')} 
+                         className="p-3 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all"
+                         aria-label="Confirm booking"
+                       >
+                         <CheckCircle className="w-4 h-4" />
+                       </button>
+                       <button 
+                         onClick={() => handleStatusUpdate(b.id, 'completed')} 
+                         className="p-3 bg-green-50 text-green-600 rounded-xl hover:bg-green-600 hover:text-white transition-all"
+                         aria-label="Complete booking"
+                       >
+                         <CheckCircle className="w-4 h-4" />
+                       </button>
+                       <button 
+                         onClick={() => handleDeleteBooking(b.id)} 
+                         className="p-3 bg-red-50 text-red-600 rounded-xl hover:bg-red-600 hover:text-white transition-all"
+                         aria-label="Delete booking"
+                       >
+                         <Trash2 className="w-4 h-4" />
+                       </button>
                     </div>
                   </div>
                 </motion.div>
@@ -418,7 +440,11 @@ export default function Admin() {
               >
                 <div className="p-8 border-b border-gray-50 dark:border-zinc-800 flex justify-between items-center">
                   <h3 className="text-2xl font-bold">{editingProduct ? 'Edit' : 'Add New'} Product</h3>
-                  <button onClick={() => setIsAddingProduct(false)} className="p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-full">
+                  <button 
+                    onClick={() => setIsAddingProduct(false)} 
+                    className="p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-full"
+                    aria-label="Close modal"
+                  >
                     <X className="w-6 h-6" />
                   </button>
                 </div>

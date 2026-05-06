@@ -91,7 +91,11 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-4">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 dark:text-gray-300">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="text-gray-600 dark:text-gray-300"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
             {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
           </button>
         </div>
