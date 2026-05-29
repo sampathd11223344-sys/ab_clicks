@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Layout from './components/Layout';
 import { useAuth } from './hooks/useAuth';
 
@@ -43,6 +44,7 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
+      <Analytics />
     </Router>
   );
 }
